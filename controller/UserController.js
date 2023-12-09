@@ -16,7 +16,7 @@ const register = async (req, res) => {
             email,
             birthday
         })
-        const message = `Dear ${user.username}, /n We are glad to have you on board. Happy birthday in advance.`;
+        const message = `Dear ${user.username},  We are glad to have you on board. Happy birthday in advance.`;
         sendEmail(message, user);
         return res.status(201).json({
             status: "success",
