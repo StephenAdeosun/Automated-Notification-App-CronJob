@@ -4,7 +4,7 @@ const sendEmail = require('./email');
 
 function start() {
     console.log('Cron job started');
-    cron.schedule('* * * * *', async () => {
+    cron.schedule('0 7 * * *', async () => {
 
         const today = new Date();
         today.toISOString().slice(0, 10);

@@ -1,4 +1,5 @@
 const userSchema = require('../model/UserModel');
+const sendEmail = require('../utils/email');
 
 const register = async (req, res) => {
     const {username, email, birthday} = req.body;
@@ -15,6 +16,8 @@ const register = async (req, res) => {
             email,
             birthday
         })
+        const message = `Dear ${user.username}, /n We are glad to have you on board. Happy birthday in advance.`;
+        sendEmail(message, user);
         return res.status(201).json({
             status: "success",
             message: "User successfully created",
