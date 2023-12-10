@@ -10,6 +10,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 
+
 connect();
 app.use('/api/v1/user', userRouter);
 app.get('/', (req, res) => {
