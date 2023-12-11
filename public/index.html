@@ -31,7 +31,7 @@
     <div id="api-error-message" class="text-red-500 mb-4 hidden"></div>
     <div id="success-message" class="text-green-500 mb-4 hidden"></div>
     
-    <fo rm id="birthdayForm" class="space-y-4">
+    <form id="birthdayForm" class="space-y-4">
       <div>
         <label for="username" class="block text-sm font-medium text-gray-600 font-extrabold">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter your username" class="mt-1 p-2 w-full border rounded-md"  required>
@@ -112,7 +112,8 @@
 
     const form = document.getElementById('birthdayForm');
     form.addEventListener('submit', function (event) {
-      event.preventDefault();
+      // event.preventDefault();
+      console.log('Form submitted');
       submitForm();
     });
   </script>
