@@ -1,5 +1,3 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,16 +102,16 @@
           }
       })
       .catch((error) => {
-          console.error('Error:', error);
+          console.log('Error:', error);
           // Show generic error message
+          alert(error.message);
           document.getElementById('api-error-message').classList.remove('hidden');
       });
     }
 
     const form = document.getElementById('birthdayForm');
     form.addEventListener('submit', function (event) {
-      // event.preventDefault();
-      console.log('Form submitted');
+      event.preventDefault(); 
       submitForm();
     });
   </script>
