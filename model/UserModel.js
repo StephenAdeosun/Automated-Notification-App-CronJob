@@ -21,39 +21,39 @@ const userSchema = new Schema({
         type: Date,
         required: true
     },
-    // birthdayMD:{
-    //     type: String,
-    // },
-    // age:{
-    //     type: Number,
-    // },
+    birthdayMD:{
+        type: String,
+    },
+    age:{
+        type: Number,
+     },
     created_at:{
         type: Date,
         default: Date.now
     }
 })
 
-// userSchema.pre('save', function(next){
-//     const date = new Date(this.birthday);
-//     this.birthdayMD = date.toISOString().slice(5, 10);
-//     next();
+userSchema.pre('save', function(next){
+    const date = new Date(this.birthday);
+    this.birthdayMD = date.toISOString().slice(5, 10);
+    next();
 
-//     // calculate the age
-//     const today = new Date();
-//     const birthDate = new Date(this.birthday);
-//     let age = today.getFullYear() - birthDate.getFullYear();
-//     const monthDiff = today.getMonth() - birthDate.getMonth();
+    // calculate the age
+    const today = new Date();
+    const birthDate = new Date(this.birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
     
-//     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-//         age--;
-//     }
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
     
-//     this.age = age;
+    this.age = age;
 
-//     next();
+    next();
 
 
-// })
+})
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
