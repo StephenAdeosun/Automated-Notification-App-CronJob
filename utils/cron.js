@@ -11,13 +11,17 @@ function start() {
         console.log(monthDay);
         const users = await User.find({ birthdayMD: { $eq: monthDay }  });
 
-        // console.log(users);
+        console.log(users);
         const message = `Happy birthday to you! Happy birthday to you! Happy birthday dear ${users[0].username}! Happy birthday to you`;
-
-        // console.log('Sending email to', users.length, 'users');
-        users.forEach(user => {
-            sendEmail(message, user);
-        });
+    users.forEach(user => {
+        console.log(user.email);
+        sendEmail(message, user)
+        .then(result => {
+            console.log('Email sent...', result);
+        })
+    })
+        
+       
 
     });
 }

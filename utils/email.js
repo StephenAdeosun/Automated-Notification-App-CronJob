@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-const sendEmail = async (message, user) => {
+const sendEmail = async (message, users) => {
     try {
   const transporter = nodemailer.createTransport({
     service: "Gmail",
@@ -12,7 +12,7 @@ const sendEmail = async (message, user) => {
   });
   const mailOptions = {
     from: process.env.EMAIL_USERNAME,
-    to: user.email,
+    to: users.email,
     subject: "Greetings From Birthday App",
     text: message,
   };
